@@ -1,5 +1,5 @@
 ## @file
-# Copyright (c) 2016-2020, Arm Limited or its affiliates. All rights reserved.
+# Copyright (c) 2016-2020, 2021 Arm Limited or its affiliates. All rights reserved.
 #  SPDX-License-Identifier : Apache-2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,11 +18,11 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = BsaPalLib
+  BASE_NAME                      = BsaPalLibDT
   FILE_GUID                      = 7f2093fb-2e69-46eb-af52-ba1df42f6195
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
-  LIBRARY_CLASS                  = BsaPalLib|UEFI_APPLICATION UEFI_DRIVER
+  LIBRARY_CLASS                  = BsaPalLibDT|UEFI_APPLICATION UEFI_DRIVER
 
 [Sources.common]
   src/AArch64/ArmSmc.S
@@ -39,6 +39,8 @@
   src/pal_peripherals.c
   src/pal_exerciser.c
   src/pal_smmu.c
+  src/pal_dt.c
+  src/pal_dt_debug.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -55,9 +57,9 @@
   DebugLib
   BaseMemoryLib
   ShellCEntryLib
-  DxeServicesTableLib
   UefiBootServicesTableLib
   UefiRuntimeServicesTableLib
+  FdtLib
 
 [Protocols]
   gEfiAcpiTableProtocolGuid                     ## CONSUMES
@@ -69,6 +71,7 @@
 [Guids]
   gEfiAcpi20TableGuid
   gEfiAcpiTableGuid
+  gFdtTableGuid
 
 [BuildOptions]
   GCC:*_*_*_ASM_FLAGS  =  -march=armv8.2-a

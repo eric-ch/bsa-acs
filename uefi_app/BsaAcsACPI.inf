@@ -18,7 +18,7 @@
 
 [Defines]
   INF_VERSION                    = 0x00010006
-  BASE_NAME                      = Bsa
+  BASE_NAME                      = BsaACPI
   FILE_GUID                      = a912f198-7f0e-4803-b908-b757b806ec83
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 0.1
@@ -162,7 +162,7 @@
 
 [LibraryClasses]
   BsaValLib
-  BsaPalLib
+  BsaPalLibACPI
   UefiLib
   ShellLib
   DebugLib
